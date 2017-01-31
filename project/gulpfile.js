@@ -81,6 +81,7 @@ gulp.task('build-js', function () {
             .pipe(concat('app.min.js'))
             .pipe(ngAnnotate())
             .pipe(uglify())
+            .pipe(gulp.dest('src/main/resources/static/scripts'));
 });
 
 

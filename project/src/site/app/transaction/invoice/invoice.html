@@ -1,0 +1,111 @@
+<div class="bt border-success">
+    <div class="col-xs-4 br border-success bg-default-light">
+        <div class="row bb border-success">
+            <div class="col-sm-12 pt15 pb15 fixed">
+                <div class="col-sm-6">
+                    <input class=" col-sm-6 form-control border-success" type="text" placeholder="stock..." ng-model="aa">
+                </div>
+                <div class="col-sm-6">
+                    <input class="col-sm-2 form-control border-success" type="text" placeholder="search..." ng-model="aa">
+                </div>
+            </div>
+        </div>
+
+        <div class="row smart-scroll-y scroll-success" style="height: calc(100vh - 122px) ">
+            <div     >
+                <div class="col-xs-12 bg-success bt bb border-success mb5">
+                    <h4 class="text-center">SERVICE ITEMS</h4>
+                </div>
+
+                <div class="col-xs-12"   >
+                    <div class="widget bg-white border-success bordered mb5">
+                        <div class="pull-left">
+                            <img class="widget-icon" src="../../../images/computer2.jpg" >
+                        </div>
+
+                        <div class="widget-details">
+                            <span class="h5 bold">HP LAPTOP GB2 {{ui.mode}}</span>
+                            <small class="block h5 text-success">RS: 46800.00</small>
+                        </div>
+
+                        <div class="widget-icon bg-success pull-right mt5 fa fa-info">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-8 bg-white ">
+        <div class="row bb border-success" ng-show="model.formName === 'INVOICE'">
+            <div class="col-xs-3 pt15 pb15">
+                <input type="text" placeholder="Invoice No" class="form-control border-success">
+            </div>
+            <div class="col-xs-3 pt15 pb15">
+                <input type="date" placeholder="Date" class="form-control border-success">
+            </div>
+            <div class="col-xs-3 pt15 pb15">
+                <input type="text" placeholder="Customer" class="form-control border-success">
+            </div>
+            <div class="col-xs-3 pt15 pb15">
+                <input type="number" placeholder="Mobile" class="form-control border-success">
+            </div>
+        </div>
+
+        <div class="row bt bb border-success">
+            <div class="col-sm-12 bg-success mb5">
+                <h4 class="text-center">Item Cart</h4>
+            </div>
+        </div>
+
+        <div class="row smart-scroll-y scroll-success" style="height: calc(100vh - 248px);">
+            <div class="col-xs-12" ng-repeat="item in [1,2,3,4,5,6]"    >
+
+               
+                <div class="widget bg-white border-success bordered pt0 pb0 mb5">
+                    <div class="col-sm-1 pull-left mt10">
+                        <img class="widget-icon" src="../../../images/computer3.jpg" >
+                    </div>
+
+                    <div class="col-sm-4 widget-details ">
+                        <span class="h6 bold">HP LAPTOP GB2 TB1 LONG TEXT GOES HERE LIKE THIS</span>
+                        <span class="label label-success ">WARRANTY</span>
+                        <span class="label label-success ">DISCOUNT</span>
+                    </div>
+
+                    <div class="col-sm-3 h4 pull-left  pr30 ">
+                        <span class="h6 bold">2 X 34000.00<br>(4000.00)</span>
+
+                    </div>
+                    <div class="col-sm-2 h4 pull-left text-success bold mt20">
+                        RS:30000.00
+                    </div>
+
+                    <div class="col-sm-1 pull-right fa fa-edit no-padding mt10 widget-icon bg-primary-light">
+                    </div>
+
+                    <div class="col-sm-1 pull-right fa fa-remove mt10 widget-icon bg-danger-light ">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row bt bg-default-dark bt border-success">
+            <div class="col-sm-8">
+                <div class="h2 text-success bold mb0">
+                    RS:270000.00
+                </div>
+                <label class="no-margin text-center">(RS:279000.00 - RS:9000.00)</label>
+            </div>
+            
+            <div class="col-sm-4">
+                <button class="btn btn-default col-sm-12 mt5"> <span class="fa fa-refresh"></span>&nbsp;&nbsp;&nbsp; DISCARD</button>
+                <button class="btn btn-success col-sm-12 mt5"> <span class="fa fa-check"></span>&nbsp; CHECKOUT</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
