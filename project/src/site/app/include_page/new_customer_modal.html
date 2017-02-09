@@ -1,0 +1,53 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close btn btn-lg" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 class="modal-title text-center">Customer Advance Search</h3>
+        </div>
+        <div class="modal-body">
+            <div class="row mb25">
+                <div >
+                    <div class="modal-body no-padding">
+                        <table class="table table-hover table-fixed">
+                            <thead class="btn-default">
+                                <tr>
+                                    <th class="col-sm-3">
+                                        CUSTOMER NAME
+                                        <input id="othertext1" placeholder="Name" class="form-control" ng-model="search.customer.name" type="text">
+                                    </th>
+
+                                    <th class="col-sm-3">
+                                        NIC NO.
+                                        <input id="othertext1" placeholder="NIC" class="form-control" ng-model="search.customer.nic" type="text">
+                                    </th>
+
+                                    <th class="col-sm-3">
+                                        TELEPHONE NO.
+                                        <input id="othertext1" placeholder="Tel No" class="form-control" ng-model="search.customer.mobile" type="text">
+                                    </th>
+                                    <th class="col-sm-3">
+                                        ADDRESS:
+                                        <input id="othertext1" placeholder="ADDRESS" class="form-control" ng-model="search.customer.address" type="text">
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="cusstomer in [1, 2, 3, 4, 5]"ng-click="doSelectCustomer(customer)" data-dismiss="modal">
+                                    <td class="col-sm-3">name</td>
+                                    <td class="col-sm-3">945367233V</td>
+                                    <td class="col-sm-3">0721312778</td>
+                                    <td class="col-sm-3">address here</td>
+                                </tr>    
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer no-border">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="ui.setClient(client)">Save</button>
+        </div>
+    </div>
+</div>

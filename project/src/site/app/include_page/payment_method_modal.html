@@ -1,0 +1,132 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 class="modal-title text-center">Payment Methods</h3>
+        </div>
+        <div class="modal-body no-padding">
+            <table class="table mb0"> 
+                <thead>
+                    <tr>
+                        <th class="col-md-4">
+                            Invoice Amount
+                            <input type="text" class="form-control" placeholder="12000.00"/>
+                        </th>
+                        <th class="col-md-4">
+                            Paid Amount
+                            <input type="text" class="form-control" placeholder="paid amount"/>
+                        </th>
+                        <th class="col-md-4">
+                            Balance
+                            <input type="number" class="form-control" placeholder="balance"/>
+                        </th>
+                    </tr>
+                </thead> 
+            </table>
+            <div class="panel panel-primary no-margin bordered pb10">
+                <div class="panel-heading no-padding no-margin"> 
+                    <div>
+                        <span class="text-left pl30">CASH</span>
+                        <span class="pull-right pr30">11000.00</span>
+                    </div> 
+                </div> 
+                <div class="panel-body">
+                    <input type="text" class="form-control" placeholder="Cash Amount"/>
+                </div> 
+            </div>
+            <div class="panel panel-primary no-margin bordered pb10 ">
+                <div class="panel-heading no-padding no-margin"> 
+                    <div>
+                        <span class="text-left pl30">Cheque</span>
+                        <span class="pull-right pr30">11000.00</span>
+                    </div>  
+                </div> 
+                <div class="panel-body no-padding">
+                    <table class="table mb0"> 
+                        <thead>
+                            <tr>
+                                <th class="col-md-3">
+                                    <input type="text" class="form-control" placeholder="Cheque No"/>
+                                </th>
+                                <th class="col-md-3">
+                                    <input type="text" class="form-control" placeholder="Bank"/>
+                                </th>
+                                <th class="col-md-3">
+                                    <input type="text" class="form-control" placeholder="Date"/>
+                                </th>
+                                <th class="col-md-3">
+                                    <input type="number" class="form-control" placeholder="Amount"/>
+                                </th>
+                            </tr>
+                        </thead>    
+                    </table>
+                    <div class="smart-scroll-y" style="height: calc(100vh - 630px)">
+                        <table class="table no-padding no-margin">
+                            <tr>
+                                <td class="col-md-3"> 
+                                    2323446
+                                </td>
+                                <td class="col-md-3">
+                                    HNB
+                                </td>
+                                <td class="col-md-3">
+                                    2016-03-12
+                                </td>
+                                <td class="col-md-3">
+                                    12300.00
+                                    <button type="button" class="close pull-right">×</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div> 
+            </div>
+            <div class="panel panel-primary no-margin bordered pb10">
+                <div class="panel-heading no-padding no-margin"> 
+                    <div>
+                        <span class="text-left pl30">CARD</span>
+                        <span class="pull-right pr30">11000.00</span>
+                    </div> 
+                </div> 
+                <div class="panel-body no-padding">
+                    <table class="table mb0"> 
+                        <thead>
+                            <tr>
+                                <th class="col-md-4">
+                                    <input type="text" class="form-control" placeholder="Card No"/>
+                                </th>
+                                <th class="col-md-4">
+                                    <input type="text" class="form-control" placeholder="Bank"/>
+                                </th>
+                                <th class="col-md-4">
+                                    <input type="number" class="form-control" placeholder="Amount"/>
+                                </th>
+                            </tr>
+                        </thead>                        
+                    </table>
+                    <div class="smart-scroll-y" style="height: calc(100vh - 630px)">
+                        <table class="table no-padding no-margin">
+                            <tr>
+                                <td> 
+                                    2323-4464-0364
+                                </td>
+                                <td>
+                                    Sampath Bank
+                                </td>
+                                <td>
+                                    45000.00
+                                    <button type="button" class="close pull-right">×</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div> 
+            </div>
+        </div>
+
+        <div class="modal-footer no-border">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="ui.setClient(client)">Save</button>
+        </div>
+    </div>
+</div>
