@@ -8,6 +8,10 @@
                             templateUrl: "app/master/customer/customer.html",
                             controller: "CustomerController"
                         })
+                        .when("/master/category", {
+                            templateUrl: "app/master/category/category.html",
+                            controller: "CategoryController"
+                        })
 //                        .when("/master/item", {
 //                            templateUrl: "app/master/item/item.html",
 //                            controller: "ItemController"

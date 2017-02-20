@@ -60,14 +60,14 @@
 
         <div class="row smart-scroll-y scroll-success" style="height: calc(100vh - 242px);">
             <div class="col-xs-12" ng-repeat="selectedItem in ui.itemCartList"   >
-                <div class="widget bg-white border-success bordered pb0 mb0 mt5">
+                <div class="widget bg-white border-success bordered pb0 mb0 mt5 no-padding">
                     <div class="col-sm-5 widget-details ">
                         <span class="h6 bold">{{selectedItem.itemDescription}}</span>
                         <span class="label label-success" ng-show="selectedItem.warranty">WARRANTY</span>
                         <span class="label label-success" ng-show="selectedItem.discount">DISCOUNT</span>
                     </div>
 
-                    <div class="col-sm-3 h4 pull-left  pr30 ">
+                    <div class="col-sm-3 pull-left  pr30 ">
                         <span class="h6 bold">{{selectedItem.qty}} X {{selectedItem.unitPrice}}<br>({{selectedItem.discountValue}})</span>
 
                     </div>
@@ -76,10 +76,10 @@
                         {{selectedItem.value}}
                     </div>
 
-                    <div class="col-sm-1 pull-right fa fa-edit no-padding mt10 widget-icon bg-primary-light" data-toggle="modal" data-target=".edit-modal">
+                    <div class="col-sm-1 pull-right fa fa-edit no-padding mt5 mr5 widget-icon bg-primary-light" data-toggle="modal" data-target=".edit-modal">
                     </div>
 
-                    <div class="col-sm-1 pull-right fa fa-remove mt10 widget-icon bg-danger-light " data-toggle="modal" data-target=".delete-modal">
+                    <div class="col-sm-1 pull-right fa fa-remove mt5 widget-icon bg-danger-light " data-toggle="modal" data-target=".delete-modal">
                     </div>
                 </div>
             </div>

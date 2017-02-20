@@ -96,7 +96,8 @@ gulp.task('build-css', function () {
         'bower_components/bootstrap/dist/css/bootstrap.min.css',
         'bower_components/animate.css/animate.min.css',
         'bower_components/font-awesome/css/font-awesome.min.css',
-        'bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css'
+        'bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css',
+        'bower_components/angular-bootstrap/ui-bootstrap-csp.css'
     ])
         .pipe(debug())
         .pipe(concat('vendor.min.css'))
