@@ -1,0 +1,132 @@
+<div class="bt border-success">
+
+    <!--start item search panel-->
+    <div class="col-xs-4 br border-success bg-default-light">
+
+        <!--start search item box-->
+        <div class="row bb border-success">
+            <div class="col-sm-12 pt15 pb15">
+                <input class="col-sm-2 form-control border-success" type="text" placeholder="search..." ng-model="search">
+            </div>
+
+            <div class="col-xs-12 bg-success bt bb border-success">
+                <h4>Searching for </h4>
+            </div>
+        </div>
+        <!--end search item box-->
+
+        <!--start seach results-->
+        <div class="row smart-scroll-y scroll-success" style="height: calc(100vh - 163px) ">
+
+            <div ng-repeat="category in ui.searchItems">
+                <!--                <div class="col-xs-12 bg-success bt bb border-success mb5">
+                                    <h4 class="text-center">{{category.itemCategoryName}}</h4>
+                                </div>-->
+
+                <div class="col-xs-12" ng-click="ui.setModalValue(category, subItem);" data-toggle="modal" data-target=".edit-modal-bulk" 
+                     ng-repeat="subItem in category.itemList|filter:search">
+
+                    <div ng-include="'app/transaction/invoice/templates/search-item-tile.html'">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end search results-->
+    </div>
+    <!--end item search panel-->
+
+    <div class="col-xs-8 bg-white ">
+        <div class="row bb border-success">
+            <div class="col-xs-6 pt15 pb15">
+                <div class="input-group ">
+                    <input type="text" placeholder="Customer" ng-model="model.customer.name" class="form-control border-success">
+                    <span class="input-group-addon border-success" data-toggle="modal" data-target=".bs-modal-sm"><i class="fa fa-plus"></i></span>
+                </div>
+            </div>
+            <div class="col-xs-3 pt15 pb15">
+                <input type="date" placeholder="Date" class="form-control border-success">
+            </div>
+
+            <div class="col-xs-3 pt15 pb15">
+                <input type="text" placeholder="Invoice No" class="form-control border-success">
+            </div>
+        </div>
+
+        <div class="row bt bb border-success">
+            <div class="col-sm-12 bg-success">
+                <h4 class="text-center">Item Cart</h4>
+            </div>
+        </div>
+
+        <div class="row smart-scroll-y scroll-success" style="height: calc(100vh - 242px);">
+            <div class="col-xs-12" ng-repeat="selectedItem in ui.itemCartList"   >
+                <div class="widget bg-white border-success bordered pb0 mb0 mt5 no-padding">
+                    <div class="col-sm-5 widget-details ">
+                        <span class="h6 bold">{{selectedItem.itemDescription}}</span>
+                        <span class="label label-success" ng-show="selectedItem.warranty">WARRANTY</span>
+                        <span class="label label-success" ng-show="selectedItem.discount">DISCOUNT</span>
+                    </div>
+
+                    <div class="col-sm-3 pull-left  pr30 ">
+                        <span class="h6 bold">{{selectedItem.qty}} X {{selectedItem.unitPrice}}<br>({{selectedItem.discountValue}})</span>
+
+                    </div>
+
+                    <div class="col-sm-2 h4 pull-left text-success bold mt20">
+                        {{selectedItem.value}}
+                    </div>
+
+                    <div class="col-sm-1 pull-right fa fa-edit no-padding mt5 mr5 widget-icon bg-primary-light" data-toggle="modal" data-target=".edit-modal">
+                    </div>
+
+                    <div class="col-sm-1 pull-right fa fa-remove mt5 widget-icon bg-danger-light " data-toggle="modal" data-target=".delete-modal">
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="row bt bg-default-dark bt border-success">
+            <div class="col-sm-8">
+                <div class="h2 text-success bold mb0">
+                    RS:270000.00
+                </div>
+                <label class="no-margin text-center">(RS:279000.00 - RS:9000.00)</label>
+            </div>
+
+            <div class="col-sm-4">
+                <button class="btn btn-default col-sm-12 mt5"> <span class="fa fa-refresh"></span>&nbsp;&nbsp;&nbsp; DISCARD</button>
+                <button class="btn btn-success col-sm-12 mt5" data-toggle="modal" data-target=".payment_method_modal"> <span class="fa fa-check"></span>&nbsp; CHECKOUT</button>
+
+            </div>
+            <!--Modal Customer--> 
+            <div class="modal bs-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+                <div ng-include src="'app/include_page/new_customer_modal.html'"></div>
+            </div>
+            <!--Modal Delete--> 
+            <div class="modal delete-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div ng-include src="'app/include_page/delete_modal.html'"></div>
+            </div>
+            <!--Modal Item Info / Item Edit--> 
+            <div class="modal edit-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div ng-include src="'app/include_page/edit_item.html'"></div>
+            </div>
+            <!--Modal Item Info / bulk--> 
+            <div class="modal edit-modal-bulk" tabindex="-1" role="dialog" aria-hidden="true">
+                <div ng-include src="'app/include_page/edit_item_bulk.html'"></div>
+            </div>
+            <!--Modal Item Info / serial--> 
+            <div class="modal edit-modal-serial" tabindex="-1" role="dialog" aria-hidden="true">
+                <div ng-include src="'app/include_page/edit_item_serial.html'"></div>
+            </div>
+            <!--Modal payment method--> 
+            <div class="modal payment_method_modal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div ng-include src="'app/include_page/payment_method_modal.html'"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

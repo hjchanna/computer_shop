@@ -1,0 +1,32 @@
+<div class="border-success bordered bg-white col-xs-12 mt5">
+    <div class="col-xs-2 pt20">
+        <img class="img-circle" src="{{subItem.image}}" style="width: 44px; height: 44px;"/>
+    </div>
+
+    <div class="col-xs-8 pl20">
+        <div class="row bold">{{subItem.itemDescription}}</div>
+        <div class="row ">
+            <span class="label label-success" ng-if="subItem.warranty">warranty</span>
+            <span class="label label-success" ng-if="subItem.discount">discount</span>
+            <span class="label label-success" ng-if="subItem.itemType">{{subItem.itemType}}</span>
+        </div>
+        <div class="row ">
+            <ol class="breadcrumb no-margin no-padding">
+                <li>
+                    <a>{{subItem.itemDepartment}}</a>
+                </li> 
+                <li>
+                    <a>{{subItem.itemCategory}}</a>
+                </li>
+            </ol>
+        </div>
+
+        <div class="row bold text-success">
+            RS:{{subItem.unitPrice}}
+        </div>
+    </div>
+    <div class="col-xs-2 pt10">
+        <div class="col-sm-1 pull-right fa fa-info mt10 bg-primary-light img-circle pt15 " style="width: 40px;height: 40px;text-align: center">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,154 @@
+<div class="bt border-success">
+    <div class="col-xs-4 br border-success bg-default-light">
+        <div class="row bb border-success">
+            <div class="col-sm-12 pt15 pb15 fixed">
+                <div class="col-sm-12">
+                    <input class=" form-control border-success" type="text" placeholder="search..." ng-model="search"  uib-typeahead="customer as (customer.indexNo+' - '+customer.name) for customer in model.customerList|filter:{name:$viewValue}|limitTo:10">
+                </div>
+            </div>
+        </div>
+
+        <div class="row smart-scroll-y scroll-success" style="height: calc(100vh - 121px) ">
+            <div ng-show="1">
+                <div class="text-center mt15">
+                    <span class="bold">D.R KASUN CHAMARA</span><br>
+                    <span># 38, mudungama, siripura, polonnaruwa</span><br>
+                    <span>+94711727579</span><br>
+                    <span>933013650V</span><br>
+                </div>
+                <div class="col-sm-12 mt20">
+                    <table class="table bg-default-dark">
+                        <tbody>
+                            <tr>
+                                <td class="bold">
+                                    PAYABLE AMOUNT :
+                                </td>   
+                                <td class="text-right">
+                                    12300.00
+                                </td>   
+                            </tr>
+                            <tr>
+                                <td class="bold">
+                                    OVER PAYMENT :
+                                </td>   
+                                <td class="text-right">
+                                    1000.00
+                                </td>   
+                            </tr>
+                            <tr>
+                                <td class="bold">
+                                    INVOICES PAY AMOUNT :
+                                </td>   
+                                <td class="text-right">
+                                    0.00
+                                </td>   
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="placeholder mt5 ml15 mb5 mr0 " ng-hide="1" style="height: calc(100vh - 130px);">
+                <h1>SELECT A CUSTOMER FOR CUSTOMER PAYMENT :(</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-8 bg-white ">
+        <div class="row bt bb border-success">
+            <div class="col-sm-12 bg-success mb5" style="height: 64px">
+                <h4 class="text-center mt20 h3">Payable Invoice List </h4>
+            </div>
+        </div>
+
+        <div class="row smart-scroll-y scroll-success" style="height: calc(100vh - 206px);">
+            <div class="col-xs-12 " ng-repeat="q in [1, 2, 3, 4, 5]">
+                <div class="widget bg-white border-success bordered pt0 pb0 mb5 " style="float: left" >
+                    <div style="width: 10%;float: left" class="text-success bold">
+                        REF NO:<br> INV5002
+                    </div>
+                    <div style="width: 20%;float: left" class="mt10 text-center">
+                        2017-01-04
+                    </div>
+                    <div style="width: 10%;float: left" class="mt10">
+                        INV
+                    </div>
+                    <div style="width: 20%;float: left">
+                        10,000.00 <br>(2000.00)
+                        
+                    </div>
+                    <div style="width: 20%;float: left" class="text-success bold mt10 h4">
+                        8,000.00
+                    </div>
+                    <div style="width: 20%;float: left" class="mt2">
+                        <input type="text" class="form-control" placeholder="pay amount"/>
+                    </div>
+<!--                    <div class="col-sm-4 widget-details ">
+                        <span class="h6 bold">Item Description long text here</span>
+                        <span class="label label-success" ng-show="true">WARRANTY</span>
+                        <span class="label label-success" ng-show="true">DISCOUNT</span>
+                    </div>
+
+                    <div class="col-sm-3 h4 pull-left  pr30 no-padding ">
+                        <span class="h6 bold">2 X 20000.00<br>(4000.00)</span>
+
+                    </div>
+
+                    <div class="col-sm-1 h6 pull-left text-success bold mt20 no-padding">
+                        36000.00
+                    </div>
+                    <div class="col-sm-2  text-success mt10">
+                        <input type="text" class="form-control text-right" value="6000.00"/>
+                    </div>
+
+                    <div class="col-sm-1 pull-right fa fa-edit no-padding mt10 widget-icon bg-primary-light" data-toggle="modal" data-target=".edit-modal">
+                    </div>
+
+                    <div class="col-sm-1 pull-right fa fa-remove mt10 widget-icon bg-danger-light " data-toggle="modal" data-target=".delete-modal">
+                    </div>-->
+                </div>
+            </div>
+        </div>
+
+        <div class="row bt bg-default-dark bt border-success">
+            <div class="col-sm-8">
+<!--                <div class="h2 text-success bold mb0">
+                    RS:270000.00
+                </div>
+                <label class="no-margin text-center">(RS:279000.00 - RS:9000.00)</label>-->
+            </div>
+
+            <div class="col-sm-4">
+                <button class="btn btn-default col-sm-12 mt5"> <span class="fa fa-refresh"></span>&nbsp;&nbsp;&nbsp; DISCARD</button>
+                <button class="btn btn-success col-sm-12 mt5" data-toggle="modal" data-target=".payment_method_modal"> <span class="fa fa-check"></span>&nbsp; CHECKOUT</button>
+
+            </div>
+            <!--Modal Customer--> 
+            <div class="modal bs-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+                <div ng-include src="'app/include_page/new_customer_modal.html'"></div>
+            </div>
+            <!--Modal Delete--> 
+            <div class="modal delete-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div ng-include src="'app/include_page/delete_modal.html'"></div>
+            </div>
+            <!--Modal Item Info / Item Edit--> 
+            <div class="modal edit-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div ng-include src="'app/include_page/edit_item.html'"></div>
+            </div>
+            <!--Modal Item Info / bulk--> 
+            <div class="modal edit-modal-bulk" tabindex="-1" role="dialog" aria-hidden="true">
+                <div ng-include src="'app/include_page/edit_item_bulk.html'"></div>
+            </div>
+            <!--Modal Item Info / serial--> 
+            <div class="modal edit-modal-serial" tabindex="-1" role="dialog" aria-hidden="true">
+                <div ng-include src="'app/include_page/edit_item_serial.html'"></div>
+            </div>
+            <!--Modal payment method--> 
+            <div class="modal payment_method_modal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div ng-include src="'app/transaction/customer-payment/templetes/payment_method_modal.html'"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

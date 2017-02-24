@@ -1,82 +1,65 @@
-(function () {
-    var express = require("express");
-    var bodyParser = require('body-parser');
-    var mysql = require('mysql');
-    var connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: 'mysql',
-        database: 'comshop'
-    });
-    var app = express();
-    app.use(bodyParser.json());
-    app.use(bodyParser.urlencoded({
-        extended: true
-    }));
+var express = require("express");
+var mysql = require('mysql');
+var client = require('./client.js');
+var app = express();
 
-    connection.connect(function (err) {
-        if (!err) {
-            console.log("Database is connected ... nn");
-        } else {
-            console.log("Error connecting database ... nn");
+
+var pool = mysql.createPool({
+    host: 'localhost',
+    user: 'root',
+    password: 'mysql',
+    database: 'comshop'
+});
+
+function handle_database(req, res) {
+    pool.getConnection(function (err, connection) {
+        if (err) {
+            res.json({"code": 100, "status": "Error in connection database"});
+            return;
         }
+        console.log('load Clients start');
+       
+       console.log('connected as id ' + connection.threadId);
+            connection.query("select name from client", function (err, rows) {
+                console.log('client');
+                connection.release();
+                if (!err) {
+                    res.json(rows);
+                }
+            });
+        
+        connection.on('error', function (err) {
+            res.json({"code": 100, "status": "Error in connection database"});
+            return;
+        });
     });
+}
 
-//    connection.end();
+app.get("/", function (req, res) {
+    handle_database(req, res);
+});
 
-    app.get("/clients", function (req, res) {
-        connection.query('SELECT * from client', function (err, rows, fields) {
+
+app.get('/clients/:search', function (req, res) {
+
+    pool.getConnection(function (error, conn) {
+        if (error) {
+            console.log("failed to obtain db connection");
+            return null;
+        }
+
+        conn.query("select * from client where indexNo like '%" + req.params.search + "%' or name like '%" + req.params.search + "%' or nic like '%" + req.params.search + "%'", function (err, rows, fields) {
+            conn.release();
 
             if (!err) {
                 res.json(rows);
-            } else
-                console.log('Error while performing Query.');
-        });
-    });
-
-    app.get('/clients/:search', function (req, res) {
-        connection.query("select * from client where indexNo like '%"+req.params.search+"%' or name like '%"+req.params.search+"%' or nic like '%"+req.params.search+"%'", function (err, rows, fields) {
-            if (!err) {
-                res.json(rows);
+                return res;
             } else {
                 console.log(err);
             }
-
         });
+
     });
-    app.delete('/client_delete/:id', function (req, res) {
-        connection.query("delete from client where indexNo = " + req.params.id, function (err, client) {
-            if (!err) {
-                res.json({message: "deleted"});
-            } else {
-                console.log(err);
-            }
+});
 
-        });
-    });
-    var client = {
-        "indexNo": null,
-        "number": 4,
-        "name": "kaza",
-        "contact_name": "lal",
-        "nic": "5466768V",
-        "address": "address",
-        "contact_no": 542425664,
-        "email": "@gmail.com",
-        "client_type": "SUPPLIER"
-    };
-    app.post('/insert_client', function (req, res) {
-//        console.log(req);
-
-        connection.query("insert into client set ?", client, function (err, client) {
-            if (!err) {
-                res.json({message: "Save Success.."});
-            } else {
-                console.log(err);
-            }
-
-        });
-    });
-
-    app.listen(9000);
-}());
+app.listen(3000);
